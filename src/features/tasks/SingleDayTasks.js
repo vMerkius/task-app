@@ -10,17 +10,13 @@ const SingleDayTasks = () => {
   const dispatch = useDispatch();
   const { date } = useParams();
   const tasks = useSelector((state) => selectTasksByDate(state, date));
-  const [tasksSorted, setTasksSorted] = useState([]);
-
-  useEffect(() => {
-    setTasksSorted(
-      tasks.sort((a, b) => {
-        const timeA = parseInt(a.startTime.replace(":", ""));
-        const timeB = parseInt(b.startTime.replace(":", ""));
-        return timeA - timeB;
-      })
-    );
-  }, []);
+  const [tasksSorted, setTasksSorted] = useState(() => {
+    return tasks.sort((a, b) => {
+      const timeA = parseInt(a.startTime.replace(":", ""));
+      const timeB = parseInt(b.startTime.replace(":", ""));
+      return timeA - timeB;
+    });
+  });
 
   const handleTaskClick = (taskId) => {
     const updatedTasks = tasksSorted.map((task) => {
