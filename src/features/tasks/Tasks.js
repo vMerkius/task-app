@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addTask,
-  deleteTask,
-  loadTasks,
-  selectTasks,
-  selectTasksByDate,
-} from "./tasksSlice";
+import { loadTasks, selectTasksByDate } from "./tasksSlice";
 import AddTask from "./AddTask";
 import TasksList from "./TasksList";
 import "./tasks-lists.css";
@@ -15,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const Tasks = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector(selectTasks);
   const [showAdd, setShowAdd] = useState(false);
   const [today, setToday] = useState("");
   const [tomorrow, setTomorrow] = useState("");

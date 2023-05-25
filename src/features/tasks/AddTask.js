@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNewTask, addTask } from "./tasksSlice";
+import { addNewTask } from "./tasksSlice";
 
 import "./add-task.css";
 
